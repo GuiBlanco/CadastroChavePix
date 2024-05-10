@@ -1,0 +1,11 @@
+CREATE TABLE chave_pix (
+    id UUID PRIMARY KEY,
+    tipo_chave VARCHAR(9) NOT NULL,
+    valor_chave VARCHAR(77) NOT NULL,
+    tipo_conta VARCHAR(10) NOT NULL,
+    numero_agencia INT NOT NULL,
+    numero_conta INT NOT NULL,
+    nome_correntista VARCHAR(30) NOT NULL,
+    sobrenome_correntista VARCHAR(45),
+    data_hora_inclusao TIMESTAMP NOT NULL
+);

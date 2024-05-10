@@ -1,0 +1,19 @@
+spring:
+  application.name: cadastro-chaves-pix
+  jackson:
+    time-zone: America/Sao_Paulo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/chavepix?useTimezone=true&serverTimezone=UTC
+    username: admin
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    open-in-view: true
+springdoc:
+  pathsToMatch:
+    - /chavespix/**
+  swagger-ui:
+    use-root-path: true
