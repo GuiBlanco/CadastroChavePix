@@ -7,5 +7,6 @@ CREATE TABLE chave_pix (
     numero_conta INT NOT NULL,
     nome_correntista VARCHAR(30) NOT NULL,
     sobrenome_correntista VARCHAR(45),
-    data_hora_inclusao TIMESTAMP NOT NULL
+    data_hora_inclusao TIMESTAMP NOT NULL,
+    data_hora_inativacao TIMESTAMP
 );

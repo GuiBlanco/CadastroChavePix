@@ -215,7 +215,8 @@ public class ChavePixService {
 
 
     // todo melhorar validacao
-    private void validarCelular(String valorChave) {
+    private void
+    validarCelular(String valorChave) {
         if (!valorChave.startsWith("+") ||
                 valorChave.length() != 15 ||
                 !isNumeric(valorChave.substring(1, 4)) ||

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public interface ChavePixSpecifications {
+ public interface ChavePixSpecifications {
      static Specification<ChavePix> consultaCombinada(String id, String tipoChave, String agencia,
                                                      String conta, String nomeCorrentista,
                                                      String sobrenomeCorrentista, LocalDate dataHoraInclusaoChave,

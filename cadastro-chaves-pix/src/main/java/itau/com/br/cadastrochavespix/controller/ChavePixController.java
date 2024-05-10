@@ -44,7 +44,6 @@ public class ChavePixController {
                             content = {
                                     @Content(
                                             mediaType = "application/json",
-                                            //todo tirar o array schema é so um schema
                                             schema = @Schema(implementation = ChavePixDTO.class)
                                     )
                             }),
