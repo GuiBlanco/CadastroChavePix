@@ -68,19 +68,22 @@ public class ChavePixService {
 
 
     public ResponsePixAlteracaoDTO alterarChavePix(ChavePixAlteracaoDTO chavePixDTO) {
-
+        logger.info("Alterando Chave" + chavePixDTO.getId());
         if (chavePixDTO.getId() == null) {
+            logger.info("Erro ao gerar chave " + chavePixDTO.getId());
             throw new ResourceNotFoundException("Informe a Chave Pix.");
         }
 
         var optionalChavePix = chavePixRepository.findById(chavePixDTO.getId());
 
         if (optionalChavePix.isEmpty()) {
+            logger.info("Erro ao gerar Chave" + chavePixDTO.getId());
             throw new ResourceNotFoundException("Chave PIX não encontrada.");
         }
         var chavePix = optionalChavePix.get();
 
         if (chavePix.getDataHoraInativacaoChave() != null) {
+            logger.info("Erro ao gerar Chave" + chavePixDTO.getId());
             throw new ValidationsRulesException("Essa chave esta inativa e não pode ser alterada.");
         }
 
@@ -93,10 +96,14 @@ public class ChavePixService {
         chavePix.setTipoChave(chavePixDTO.getSobrenomeCorrentista());
         chavePix.setSobrenomeCorrentista(chavePixDTO.getSobrenomeCorrentista());
         var x = chavePixRepository.save(chavePix);
+
+        logger.info("Chave Pix Alterada" + chavePixDTO.getId());
         return converterChavePixEmResponsePixAlteracaoDto(x);
+
     }
 
     public Optional<ChavePix> deletarChavePix(UUID id) {
+        logger.info("Inativando Chave Pix " + id);
         Optional<ChavePix> optionalChavePix = chavePixRepository.findById(id);
         if (optionalChavePix.isPresent()) {
             ChavePix chavePix = optionalChavePix.get();
@@ -109,7 +116,9 @@ public class ChavePixService {
             return  Optional.of(chavePixInativada);
 
         } else {
+            logger.info("erro ao Inativar Chave "+id);
             throw new ResourceNotFoundException("Chave PIX não encontrada.");
+
         }
     }
 
